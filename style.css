@@ -1,0 +1,290 @@
+/* Base */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #7FFFD4, #AFEEEE, #B0E0E6, #E0FFFF); /* Gradiente em tons de aquamarine blue */
+    color: #008B8B; /* Dark cyan para texto principal */
+    margin: 0;
+    padding: 0 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#logo {
+    filter: hue-rotate(180deg) saturate(1.5) brightness(1.1); /* Ajustado para tons azuis */
+    width: 20%;
+    border-radius: 50%;
+}
+
+/* Containers */
+header, section {
+    max-width: 90%;
+    width: 100%;
+    margin: 5% auto;
+    padding: 5%;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 139, 139, 0.15); /* Sombra em tom de dark cyan */
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Titles */
+h1, h2 {
+    color: #00CED1; /* Dark turquoise para títulos */
+    margin-bottom: 2%;
+}
+
+h1 {
+    font-size: 250%;
+}
+
+h2 {
+    font-size: 200%;
+}
+
+/* Text */
+p {
+    font-size: 120%;
+    color: #20B2AA; /* Light sea green para parágrafos */
+}
+
+/* Poemas */
+#poemas {
+    font-family: 'Dancing Script', cursive;
+}
+
+.poema {
+    background: #E0FFFF; /* Light cyan para fundo dos poemas */
+    padding: 4%;
+    margin: 3% 0;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0, 139, 139, 0.15); /* Sombra ajustada */
+}
+
+/* Grid de fotos e vídeos */
+#momentos {
+    padding: 5% 0; /* espaço acima e abaixo da grid */
+    width: 100%;
+    max-width: 90%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajustei para minmax em px para evitar overflow com % */
+    grid-auto-rows: auto; /* linhas se ajustam à altura do conteúdo */
+    gap: 20px; /* Corrigido para px */
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+}
+
+.item {
+    width: 80%;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0, 139, 139, 0.2); /* Sombra ajustada */
+    overflow: hidden; /* Adicionado para garantir que conteúdo não saia */
+    box-sizing: border-box;
+}
+
+.grid img,
+.grid video {
+    width: 80%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+img, video {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    border: 3px solid #7FFFD4;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+    margin-bottom: 5%;
+}
+
+input, textarea {
+    padding: 3%;
+    border: 2px solid #7FFFD4; /* Bordas em aquamarine */
+    border-radius: 10px;
+    font-size: 100%;
+    background: #F0FFFF; /* Azure para fundo dos inputs */
+    color: #008B8B; /* Dark cyan para texto */
+}
+
+button {
+    padding: 3%;
+    background: #00CED1; /* Dark turquoise para botão */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 100%;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #008B8B; /* Dark cyan no hover */
+}
+
+/* Mensagens enviadas */
+#mensagens-lista {
+    width: 100%;
+    margin-top: 5%;
+    font-family: 'Dancing Script', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#messageForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.formInput {
+    width: 80%;
+}
+
+#formBtn {
+    width: 30%;
+    height: 50px;
+}
+
+.formEl {
+    margin: 6px 0;
+}
+
+.message-item {
+    background: #E0FFFF; /* Light cyan para fundo das mensagens */
+    padding: 4%;
+    margin: 3% 0;
+    border: 2px solid #7FFFD4;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0, 139, 139, 0.18); /* Sombra ajustada */
+    opacity: 0;
+    transform: translateY(20%);
+    animation: slideUp 0.8s ease forwards;
+
+    width: 80%;          /* ocupa toda largura do container pai */
+    max-width: 400px;     /* limite opcional para não ficar gigante */
+    word-wrap: break-word; /* quebra palavras grandes se necessário */
+    box-sizing: border-box; /* padding incluído na largura */
+}
+
+.message-item button.apagar {
+    margin-left: 10px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.message-item button.apagar:hover {
+    background: #cc0000;
+}
+
+/* Animações */
+.fade-slide-up {
+    opacity: 0;
+    transform: translateY(3%);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Botões dentro das mensagens */
+.message-item .botoes-msg {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end; /* ou center, se quiser centralizado */
+}
+
+.message-item .botoes-msg button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 90%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.message-item .botoes-msg button.editar-btn {
+    background: #00CED1; /* Dark turquoise */
+    color: white;
+}
+
+.message-item .botoes-msg button.editar-btn:hover {
+    background: #008B8B; /* Dark cyan */
+}
+
+.message-item .botoes-msg button.apagar-btn {
+    background: #ff4d4d;
+    color: white;
+}
+
+.message-item .botoes-msg button.apagar-btn:hover {
+    background: #cc0000;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    body {
+        padding: 0 4%;
+    }
+
+    header, section {
+        padding: 5%;
+        border-radius: 18px;
+    }
+
+    h1 {
+        font-size: 200%;
+    }
+
+    h2 {
+        font-size: 150%;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustado para mobile */
+        gap: 15px; /* Menor gap para mobile */
+    }
+
+    #logo {
+        width: 30%;
+    }
+}
